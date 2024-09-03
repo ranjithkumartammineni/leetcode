@@ -15,4 +15,4 @@ class Solution(object):
                 if k==0:
                     return i
         return ''
-            
+
