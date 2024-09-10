@@ -1,0 +1,23 @@
+# 2222. Number of Ways to Select Buildings
+# Python
+
+class Solution(object):
+    def numberOfWays(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        zeroes, ones = 0, 0
+        counts01, counts10 = 0, 0
+        counts010, counts101 = 0, 0
+        for i, v in enumerate(s):
+            if v == '0':
+                zeroes += 1
+                counts10 += ones
+                counts010 += counts01         
+            else:
+                ones += 1
+                counts01 += zeroes
+                counts101 += counts10
+        
+        return counts010 + counts101
