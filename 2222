@@ -1,6 +1,6 @@
 # 2222. Number of Ways to Select Buildings
 # Python
-
+#1
 class Solution(object):
     def numberOfWays(self, s):
         """
@@ -21,3 +21,23 @@ class Solution(object):
                 counts101 += counts10
         
         return counts010 + counts101
+
+
+#2
+class Solution(object):
+    def numberOfWays(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        z, o, zo, oz, total = 0, 0, 0, 0, 0
+        for c in s:
+            if c == '1':
+                total += oz
+                zo += z
+                o += 1
+            elif c == '0':
+                total += zo
+                oz += o
+                z += 1
+        return total
